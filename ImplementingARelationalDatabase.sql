@@ -1,26 +1,26 @@
 -- User Account Table
 CREATE TABLE user_account (
   user_id INT PRIMARY KEY,
-  name VARCHAR(255),
-  contact VARCHAR(255),
-  location_id INT,
+  name VARCHAR(255) NOT NULL,
+  contact VARCHAR(15) NOT NULL,
+  location_id INT NOT NULL,
   FOREIGN KEY (location_id) REFERENCES location(location_id)
 );
 
 -- Location Table
 CREATE TABLE location (
   location_id INT PRIMARY KEY,
-  city_name VARCHAR(255),
-  longitude FLOAT,
-  latitude FLOAT
+  city_name VARCHAR(50) NOT NULL,
+  longitude FLOAT NOT NULL,
+  latitude FLOAT NOT NULL
 );
 
 -- Advertisement Table
 CREATE TABLE advertisement (
   ad_id INT PRIMARY KEY,
-  car_id INT,
-  user_id INT,
-  title VARCHAR(255),
+  car_id INT NOT NULL,
+  user_id INT NOT NULL,
+  title VARCHAR(255) NOT NULL,
   FOREIGN KEY (car_id) REFERENCES car(car_id),
   FOREIGN KEY (user_id) REFERENCES user_account(user_id)
 );
@@ -28,12 +28,25 @@ CREATE TABLE advertisement (
 -- Car Table
 CREATE TABLE car (
   car_id INT PRIMARY KEY,
-  user_id INT,
-  brand VARCHAR(255),
-  model VARCHAR(255),
-  body_type VARCHAR(255),
-  car_type VARCHAR(255),
-  year INT,
-  price INT,
+  brand VARCHAR(100) NOT NULL,
+  model VARCHAR(255) NOT NULL,
+  body_type VARCHAR(25) NOT NULL,
+  car_type VARCHAR(25) NOT NULL,
+  year INT NOT NULL,
+  price INT NOT NULL
+);
+
+CREATE TYPE bid_status AS ENUM ('Not Sent', 'Sent');
+
+-- Bid Table
+CREATE TABLE bid (
+  bid_id INT PRIMARY KEY,
+  car_id INT NOT NULL,
+  user_id INT NOT NULL,
+  date_bid DATE NOT NULL,
+  bid_price INT NOT NULL,
+  bid_status bid_status NOT NULL,
+  FOREIGN KEY (car_id) REFERENCES car(car_id),
   FOREIGN KEY (user_id) REFERENCES user_account(user_id)
 );
+
