@@ -3,7 +3,7 @@ from generate_dummy_dataset import *
 # Establish a connection to the PostgreSQL database
 connection = psycopg2.connect(
     host="localhost",
-    database="PACMANN_FINAL_PROJECT",
+    database="RELATIONAL_DB_SQL_PROJECT",
     user="postgres",
     password="onyu$rcu"
 )
@@ -17,7 +17,7 @@ dummy_dataset_dict = [
     {
         "filename": "ads_dummy_dataset.csv",
         "table_name": "advertisement",
-        "column_names": ["ad_id", "car_id", "user_id", "title"]
+        "column_names": ["ad_id", "car_id", "user_id", "title", "date_post"]
     },
     {
         "filename": "bid_dummy_dataset.csv",

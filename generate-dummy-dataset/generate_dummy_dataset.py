@@ -55,15 +55,15 @@ def generate_dummy_ads():
     fake = Faker('id_ID')
 
     # Generate dummy dataset
-    header = ['ad_id', 'car_id', 'user_id', 'title']
+    header = ['ad_id', 'car_id', 'user_id', 'title', 'date_post']
     data = []
     for i in range(1, 101):  # Generate 50 records
         ad_id = i
         car_id = random.randint(1, 50)
         user_id = random.choice(user_data)['user_id']
-        car_info = random.choice(car_data)
         title = f"Dijual {car_data[car_id - 1]['model']} transmisi {car_data[car_id - 1]['car_type']} tahun {car_data[car_id - 1]['year']}"
-        data.append([ad_id, car_id, user_id, title])
+        date_post = fake.date_between(start_date='-1y', end_date='today')
+        data.append([ad_id, car_id, user_id, title, date_post])
 
     # Export data to CSV file
     filename = '../assets/ads_dummy_dataset.csv'
@@ -97,13 +97,13 @@ def generate_dummy_bid():
     header = ['bid_id', 'car_id', 'user_id',
               'date_bid', 'bid_price', 'bid_status']
     data = []
-    for i in range(1, 51):  # Generate 50 records
+    for i in range(1, 151):  # Generate 150 records
         bid_id = i
         car_id = random.choice(car_data)['product_id']
         user_id = random.choice(user_data)['user_id']
         date_bid = fake.date_between(start_date='-1y', end_date='today')
         bid_price = random.randint(90_000_000, 500_000_000)
-        bid_status = random.choice(['Sent', 'Not Sent'])
+        bid_status = random.choice(['Sent'])
         data.append([bid_id, car_id, user_id, date_bid, bid_price, bid_status])
 
     # Export data to CSV file
