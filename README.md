@@ -23,7 +23,7 @@ For more details, here are the features and limitations of this project:
 8. Purchase transactions are made outside the application so they are not within the scope of the project
 
 ## Entity Relation Diagram (ERD)
-![ERD](./assets/images/ERD.png "ERD")
+![ERD](./assets/images/ERD.jpg "ERD")
 
 ## Syntax DDL
 ```sql
