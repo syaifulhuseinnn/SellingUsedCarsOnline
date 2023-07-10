@@ -16,7 +16,7 @@ def generate_dummy_user():
     data = []
 
     # Read city data from city.csv
-    with open('../assets/city.csv', 'r') as city_file:
+    with open('../assets/dummy-dataset/city.csv', 'r') as city_file:
         city_reader = csv.DictReader(city_file)
         cities = list(city_reader)
 
@@ -27,7 +27,7 @@ def generate_dummy_user():
             data.append([i+1, fake.name(), fake.msisdn(), location_id])
 
     # Export data to CSV file
-    filename = '../assets/user_dummy_dataset.csv'
+    filename = '../assets/dummy-dataset/user_dummy_dataset.csv'
     with open(filename, 'w', newline='') as file:
         writer = csv.writer(file)
         writer.writerow(header)
@@ -39,14 +39,14 @@ def generate_dummy_user():
 def generate_dummy_ads():
     # Read car_product.csv
     car_data = []
-    with open('../assets/car_product.csv', 'r') as file:
+    with open('../assets/dummy-dataset/car_product.csv', 'r') as file:
         reader = csv.DictReader(file)
         for row in reader:
             car_data.append(row)
 
     # Read user_dummy_dataset.csv
     user_data = []
-    with open('../assets/user_dummy_dataset.csv', 'r') as file:
+    with open('../assets/dummy-dataset/user_dummy_dataset.csv', 'r') as file:
         reader = csv.DictReader(file)
         for row in reader:
             user_data.append(row)
@@ -66,7 +66,7 @@ def generate_dummy_ads():
         data.append([ad_id, car_id, user_id, title, date_post])
 
     # Export data to CSV file
-    filename = '../assets/ads_dummy_dataset.csv'
+    filename = '../assets/dummy-dataset/ads_dummy_dataset.csv'
     with open(filename, 'w', newline='') as file:
         writer = csv.writer(file)
         writer.writerow(header)
@@ -78,14 +78,14 @@ def generate_dummy_ads():
 def generate_dummy_bid():
     # Read car_product.csv
     car_data = []
-    with open('../assets/car_product.csv', 'r') as file:
+    with open('../assets/dummy-dataset/car_product.csv', 'r') as file:
         reader = csv.DictReader(file)
         for row in reader:
             car_data.append(row)
 
     # Read user_dummy_dataset.csv
     user_data = []
-    with open('../assets/user_dummy_dataset.csv', 'r') as file:
+    with open('../assets/dummy-dataset/user_dummy_dataset.csv', 'r') as file:
         reader = csv.DictReader(file)
         for row in reader:
             user_data.append(row)
@@ -107,7 +107,7 @@ def generate_dummy_bid():
         data.append([bid_id, car_id, user_id, date_bid, bid_price, bid_status])
 
     # Export data to CSV file
-    filename = '../assets/bid_dummy_dataset.csv'
+    filename = '../assets/dummy-dataset/bid_dummy_dataset.csv'
     with open(filename, 'w', newline='') as file:
         writer = csv.writer(file)
         writer.writerow(header)
@@ -117,7 +117,7 @@ def generate_dummy_bid():
 
 
 def import_dummy_dataset(connection, filename, table_name, column_names):
-    path = f'/Users/syaifulhusein/Documents/codes/PACMANN/SQL/Final Project/assets/{filename}'
+    path = f'/Users/syaifulhusein/Documents/codes/PACMANN/SQL/Final Project/assets/dummy-dataset/{filename}'
 
     with open(path, 'r') as file:
         cursor = connection.cursor()
