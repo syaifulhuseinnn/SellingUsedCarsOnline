@@ -17,7 +17,7 @@ For more details, here are the features and limitations of this project:
    - Car type: manual or automatic
    - Car manufacture year: 2005, 2010, 2011, 2020
 
-		Other descriptions, such as color, distance traveled, etc., may be added as needed.
+	Other descriptions, such as color, distance traveled, etc., may be added as needed.
 6. Each user can search for the cars offered based on the location of the seller user, the car brand, and the type of car body.
 7. If a potential buyer is interested in a car, he can bid on the price of the product if the seller allows the bidding feature.
 8. Purchase transactions are made outside the application so they are not within the scope of the project
