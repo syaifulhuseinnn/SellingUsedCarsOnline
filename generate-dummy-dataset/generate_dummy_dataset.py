@@ -51,9 +51,6 @@ def generate_dummy_ads():
         for row in reader:
             user_data.append(row)
 
-    # Instantiate Faker object
-    fake = Faker('id_ID')
-
     # Generate dummy dataset
     header = ['ad_id', 'car_id', 'user_id', 'title', 'date_post']
     data = []
@@ -89,9 +86,6 @@ def generate_dummy_bid():
         reader = csv.DictReader(file)
         for row in reader:
             user_data.append(row)
-
-    # Instantiate Faker object
-    fake = Faker('id_ID')
 
     # Generate dummy dataset
     header = ['bid_id', 'car_id', 'user_id',
