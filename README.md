@@ -64,9 +64,40 @@ CREATE TABLE bid (
 ```
 
 ## Dummy dataset
-Dummy dataset created using Python and additional libraries. Once dummy dataset created successfully, it will import to database using Python. Check complete code in [here 🧑‍💻](/generate-dummy-dataset/) and results in [here 🚀](/assets/dummy-dateset)
+Dummy dataset created using Python and additional libraries. Once dummy dataset created successfully, it will import to database using Python. Below is example one of functions to generate dummy dataset.
+
+> Check complete code in [here 🧑‍💻](/generate-dummy-dataset/) and results in [here 🚀](/assets/dummy-dateset)
+
+```python
+def generate_dummy_user():
+    # Generate dummy data
+    num_records = 100  # Number of records to generate
+    header = ['user_id', 'name', 'contact', 'location_id']
+    data = []
+
+    # Read city data from city.csv
+    with open('../assets/dummy-dataset/city.csv', 'r') as city_file:
+        city_reader = csv.DictReader(city_file)
+        cities = list(city_reader)
+
+        # Generate dummy data with location_id from city data
+        for i in range(num_records):
+            city = random.choice(cities)
+            location_id = city['kota_id']
+            data.append([i+1, fake.name(), fake.msisdn(), location_id])
+
+    # Export data to CSV file
+    filename = '../assets/dummy-dataset/user_dummy_dataset.csv'
+    with open(filename, 'w', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow(header)
+        writer.writerows(data)
+
+    print(f"Dummy dataset created and exported as {filename}")
+```
+
 ## Transactional Query
-1. Looking for cars from 2015 and up
+1. Looking for cars from 2015 and up.
 
 ```sql
 SELECT * FROM car WHERE year >= 2015;
