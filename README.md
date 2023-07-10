@@ -152,7 +152,7 @@ ORDER BY price ASC;
 ```
 ![Result](assets/images/4-4.png "Search for the cheapest used cars based on keywords")
 
-5. Looking for the nearest used car based on a city id, the shortest distance is calculated based on latitude longitude. Distance calculations can be calculated using the euclidean distance formula based on latitude and longitude.
+5. Looking for the nearest used car based on a `city id`, the shortest distance is calculated based on latitude longitude. Distance calculations can be calculated using the euclidean distance formula based on latitude and longitude.
   
 ```sql
 SELECT c.car_id, c.brand, c.model, c.year, c.price
