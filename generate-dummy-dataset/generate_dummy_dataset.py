@@ -57,7 +57,7 @@ def generate_dummy_ads():
     # Generate dummy dataset
     header = ['ad_id', 'car_id', 'user_id', 'title', 'date_post']
     data = []
-    for i in range(1, 101):  # Generate 50 records
+    for i in range(1, 101):  # Generate 100 records
         ad_id = i
         car_id = random.randint(1, 50)
         user_id = random.choice(user_data)['user_id']

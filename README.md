@@ -1,4 +1,4 @@
-# Used Car Sales - Final Project Relational Database & SQL
+# Selling Used Cars Online - Final Project Relational Database & SQL
 
 ## Description
 Creating a database for a project or application and understanding the data retrieval process is one of the tasks of Software & Data Engineering.
